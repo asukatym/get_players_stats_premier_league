@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brighton Player Stats</title>
+</head>
+<body>
+	<h1>Brighton Player Stats</h1>
+	<table border="1" style="border-collapse: collapse">
+		<thead>
+			<tr>
+				<th>Player Name</th>
+				<th>Player Photo</th>
+				<th>Position</th>
+				<th>Nationality</th>
+				<th>Goals</th>
+				<th>Assists</th>
+				<th>Yellow Cards</th>
+				<th>Red Cards</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for player in players %}
+			<tr>
+				<td>{{ player['player']['name'] }}</td>
+				<td><img src="{{ player['player']['photo'] }}"></td>
+				<td>{{ player['statistics'][0]['games']['position'] }}</td>
+				<td>{{ player['player']['nationality'] }}</td>
+				<td>{{ player['statistics'][0]['goals']['total'] }}</td>
+				<td>{{ player['statistics'][0]['goals']['assists'] }}</td>
+				<td>{{ player['statistics'][0]['cards']['yellow'] }}</td>
+				<td>{{ player['statistics'][0]['cards']['red'] }}</td>
+			</tr>
+			
+			{% endfor %}
+			<tr>
+				<td>{{ mitoma[0]['player']['name'] }}</td>
+				<td><img src="{{ mitoma[0]['player']['photo'] }}"></td>
+				<td>{{ mitoma[0]['statistics'][0]['games']['position'] }}</td>
+				<td>{{ mitoma[0]['player']['nationality'] }}</td>
+				<td>{{ mitoma[0]['statistics'][0]['goals']['total'] }}</td>
+				<td>{{ mitoma[0]['statistics'][0]['goals']['assists'] }}</td>
+				<td>{{ mitoma[0]['statistics'][0]['cards']['yellow'] }}</td>
+				<td>{{ mitoma[0]['statistics'][0]['cards']['red'] }}</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
